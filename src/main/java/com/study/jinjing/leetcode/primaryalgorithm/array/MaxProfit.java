@@ -13,7 +13,6 @@ public class MaxProfit {
 
         int maxProfit = 0;
         int buyerIndex = 0;
-        int tradeTimes = 0;
 
 
         for (int index = 0; index < prices.length - 1; index++) {
@@ -23,14 +22,9 @@ public class MaxProfit {
                     maxProfit += profit;
                 }
                 buyerIndex = index+1;
-                tradeTimes++;
             }
         }
-
-        //if tradeTimes equals zero,it means the prices is sorted
-        if(tradeTimes ==0){
-            return prices[prices.length-1] - prices[0];
-        }
+        maxProfit +=prices[prices.length-1] - prices[buyerIndex];
 
         return maxProfit;
     }
